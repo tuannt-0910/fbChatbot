@@ -1,0 +1,26 @@
+{
+  "name": "fbchatbot",
+  "version": "1.0.0",
+  "description": "this is fbChatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuannt-0910/fbChatbot.git"
+  },
+  "author": "nghiem-tien-tuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuannt-0910/fbChatbot/issues"
+  },
+  "homepage": "https://github.com/tuannt-0910/fbChatbot#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.3.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  }
+}

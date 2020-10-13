@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/webhook', function(req, res) {
-    console.log(req);
+    console.log('webhook get');
 
     if (req.query['hub.verify_token'] === VALIDATION_TOKEN) {
         res.send(req.query['hub.challenge']);
@@ -28,8 +28,8 @@ app.get('/webhook', function(req, res) {
 });
 
 app.post('/webhook', function(req, res) {
-    console.log(req);
-    
+    console.log('webhook post');
+
     var entries = req.body.entry;
     for (var entry of entries) {
         var messaging = entry.messaging;
@@ -46,7 +46,6 @@ app.post('/webhook', function(req, res) {
     res.status(200).send("OK");
 });
 
-// Đây là function dùng api của facebook để gửi tin nhắ
 function sendMessage(senderId, message) {
     request({
         url: 'https://graph.facebook.com/v8.0/me/messages',

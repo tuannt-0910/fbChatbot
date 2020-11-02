@@ -1,6 +1,6 @@
 const express = require('express');
 let app = express.Router();
-require('./helper/sendMessage');
+const sendMessage = require('./helper/sendMessage');
 
 app.get('/', (req, res) => {
     res.send("Home page. Server running okay.");

@@ -32,7 +32,7 @@ app.post('/webhook', function(req, res) {
     console.log('webhook post');
 
     var entries = req.body.entry;
-    console.log(entries);
+    console.log(req.body);
     // for (var entry of entries) {
     //     var messaging = entry.messaging;
     //     for (var message of messaging) {

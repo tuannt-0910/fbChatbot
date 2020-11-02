@@ -46,6 +46,7 @@ app.post('/webhook', function(req, res) {
     //     }
     // }
     // res.status(200).send("OK");
+    res.status(200).send("OK");
 });
 
 function sendMessage(senderId, message) {

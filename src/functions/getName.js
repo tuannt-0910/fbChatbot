@@ -2,7 +2,7 @@ const constants = require('../constant');
 const checkStringMeaning = require('../helper/checkStringMeaning');
 
 function isGetChatBotName(messContent) {
-    if (checkStringMeaning(
+    if (checkStringMeaning.isStringInArray(
         messContent,
         [
             'Tên bạn là gì'

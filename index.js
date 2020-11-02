@@ -8,10 +8,9 @@ const VALIDATION_TOKEN = process.env.VALIDATION_TOKEN;
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 var app = express();
-app.use(bodyParser.urlencoded())
-// app.use(bodyParser.urlencoded({
-//     extended: false
-// }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 var server = http.createServer(app);
 var request = require("request");
 

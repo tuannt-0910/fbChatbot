@@ -1,4 +1,5 @@
 const constants = require('../constant');
+const sendMessage = require('../helper/sendMessage');
 
 function getChatBotName() {
     let replyText = 'Tên tôi là: ' + constants.CHAT_BOT_NAME;

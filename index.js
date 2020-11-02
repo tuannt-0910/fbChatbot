@@ -11,6 +11,7 @@ var app = express();
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(express.json());
 var server = http.createServer(app);
 var request = require("request");
 

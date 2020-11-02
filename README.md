@@ -7,7 +7,7 @@ This is a fbChatbot
 - Add remote to project git
 	git remote add heroku https://git.heroku.com/chatbot-facebook-test.git
 - Push code
-	git push heroku master
+	git push heroku main:master
 - Setting server app to fb bot, to setup webhooks
 - In Subscription Fields, chose: messagesmessages, messaging_postback, messamessagin_optins
 - Done

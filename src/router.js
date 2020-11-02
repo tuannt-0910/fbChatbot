@@ -1,6 +1,6 @@
 const express = require('express');
 let app = express.Router();
-const sendMessage = require('./helper/sendMessage');
+const handleActions = require('./functions/index');
 const VALIDATION_TOKEN = process.env.VALIDATION_TOKEN;
 
 app.get('/', (req, res) => {
@@ -25,11 +25,12 @@ app.post('/webhook', function(req, res) {
             if (message.message) {
                 if (message.message.text) {
                     var text = message.message.text;
-                    sendMessage(senderId, "Hello!! I'm a bot. Your message: " + text);
+                    handleActions(senderId, text, entry, req);
                 }
             }
         }
     }
+
     res.status(200).send("OK");
 });
 

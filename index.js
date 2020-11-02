@@ -15,6 +15,8 @@ var server = http.createServer(app);
 var request = require("request");
 
 app.get('/', (req, res) => {
+    console.log(APP_SECRET, VALIDATION_TOKEN, PAGE_ACCESS_TOKEN);
+    console.log('webhook get');
     res.send("Home page. Server running okay.");
 });
 

@@ -1,6 +1,7 @@
 const express = require('express');
 let app = express.Router();
 const sendMessage = require('./helper/sendMessage');
+const VALIDATION_TOKEN = process.env.VALIDATION_TOKEN;
 
 app.get('/', (req, res) => {
     res.send("Home page. Server running okay.");

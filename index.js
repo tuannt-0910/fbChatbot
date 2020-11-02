@@ -3,10 +3,6 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var express = require('express');
 
-const APP_SECRET = process.env.APP_SECRET;
-const VALIDATION_TOKEN = process.env.VALIDATION_TOKEN;
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-
 var app = express();
 app.use(bodyParser.urlencoded({
     extended: true

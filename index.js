@@ -33,20 +33,19 @@ app.post('/webhook', function(req, res) {
     console.log('webhook post');
 
     var entries = req.body.entry;
-    console.log(req);
-    // for (var entry of entries) {
-    //     var messaging = entry.messaging;
-    //     for (var message of messaging) {
-    //         var senderId = message.sender.id;
-    //         if (message.message) {
-    //             if (message.message.text) {
-    //                 var text = message.message.text;
-    //                 sendMessage(senderId, "Hello!! I'm a bot. Your message: " + text);
-    //             }
-    //         }
-    //     }
-    // }
-    // res.status(200).send("OK");
+    console.log(entries);
+    for (var entry of entries) {
+        var messaging = entry.messaging;
+        for (var message of messaging) {
+            var senderId = message.sender.id;
+            if (message.message) {
+                if (message.message.text) {
+                    var text = message.message.text;
+                    sendMessage(senderId, "Hello!! I'm a bot. Your message: " + text);
+                }
+            }
+        }
+    }
     res.status(200).send("OK");
 });
 

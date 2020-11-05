@@ -19,15 +19,18 @@ chatbot = ChatBot(
 def getChatBotResponse():
     if sys.argv and sys.argv[1]:
         response = chatbot.get_response(sys.argv[1])
-        if (str(response) == 'default_response'):
-            response = random.choice([
+        responseText = str(response)
+        if (responseText == 'default_response'):
+            responseText = random.choice([
                 "(giThe) em bó tay",
                 "(caiGiThe) hỏi khó quá",
                 "(lay) cái này em không biết",
                 "(leuleu) em chịu thôi",
             ])
+    print(responseText)
 
-    print(str(response))
+    if ('_@function' in responseText):
+        print(str(chatbot.get_response(responseText)))
 
 # tringger
 getChatBotResponse()

@@ -1,13 +1,13 @@
 categories:
-- functions
-- chức năng
+- reply functions
+- trả lời chức năng
 conversations:
-- - get_now_time
+- - get_now_time_@function
   - Bây giờ là 
-- - get_now_time
+- - get_now_time_@function
   - Hiện tại là
 
-- - get_chatbot_name
+- - get_chatbot_name_@function
   - Em tên là 
-- - get_chatbot_name
+- - get_chatbot_name_@function
   - Bot có tên là 

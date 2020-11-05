@@ -3,11 +3,11 @@ categories:
 - chức năng
 conversations:
 - - mấy giờ rồi
-  - get_now_time
+  - get_now_time_@function
 - - bây giờ là mấy giờ rồi
-  - get_now_time
+  - get_now_time_@function
 
 - - mài tên là gì
-  - get_chatbot_name
+  - get_chatbot_name_@function
 - - tên mài là gì
-  - get_chatbot_name
+  - get_chatbot_name_@function

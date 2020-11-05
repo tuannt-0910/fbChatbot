@@ -1,0 +1,6 @@
+git+git://github.com/riverscuomo/ChatterBot.git#egg=ChatterBot
+spacy>=2.1,<2.2
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0/en_core_web_sm-2.1.0.tar.gz#egg=en_core_web_sm
+nltk==3.5
+chatterbot-corpus
+configparser

@@ -1,0 +1,13 @@
+categories:
+- functions
+- chức năng
+conversations:
+- - mấy giờ rồi
+  - get_now_time
+- - bây giờ là mấy giờ rồi
+  - get_now_time
+
+- - mài tên là gì
+  - get_chatbot_name
+- - tên mài là gì
+  - get_chatbot_name

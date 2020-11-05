@@ -6,6 +6,7 @@ function handleActions(senderId, messContent, entry, req) {
     	args: [messContent]
     });
     pythonShellResponce.on('message', function (replyText) {
+    	console.log('message: ' + replyText);
 	  	sendMessage(senderId, replyText);
 	});
 }

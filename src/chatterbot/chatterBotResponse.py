@@ -17,16 +17,17 @@ chatbot = ChatBot(
 )
 
 def getChatBotResponse():
-    response = random.choice([
-        "(githe2) em bó tay",
-        "(caigithe2) hỏi khó quá",
-        "(lay3) cái này em không biết",
-        "(leuleu2) em chịu thôi",
-    ])
     if sys.argv and sys.argv[1]:
         response = chatbot.get_response(sys.argv[1])
+        if (str(response) == 'default_response'):
+            response = random.choice([
+                "(giThe) em bó tay",
+                "(caiGiThe) hỏi khó quá",
+                "(lay) cái này em không biết",
+                "(leuleu) em chịu thôi",
+            ])
 
-    print(response)
+    print(str(response))
 
 # tringger
 getChatBotResponse()

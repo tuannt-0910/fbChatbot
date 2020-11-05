@@ -5,8 +5,8 @@ function handleActions(senderId, messContent, entry, req) {
     let pythonShellResponce = chatterBot({
     	args: [messContent]
     });
-    pythonShellResponce.receive(function (replyText) {
-    	console.log('finished');
+    pythonShellResponce.end(function (err, code, replyText) {
+    	console.log(err, code, replyText);
 	  	sendMessage(senderId, replyText);
 	});
 }

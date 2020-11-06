@@ -3,6 +3,15 @@ let app = express.Router();
 const handleActions = require('./functions/index');
 const VALIDATION_TOKEN = process.env.VALIDATION_TOKEN;
 
+var queue = [];
+var active = false;
+var check = function() {
+    if (!active && queue.length > 0) {
+        var f = queue.shift();
+        f();
+    }
+}
+
 app.get('/', (req, res) => {
     res.send("Home page. Server running okay.");
 });
@@ -25,7 +34,18 @@ app.post('/webhook', function(req, res) {
             if (message.message) {
                 if (message.message.text) {
                     var text = message.message.text;
-                    handleActions(senderId, text, entry, req);
+
+                    queue.push(function() {
+                        active = true;
+
+                        exec("exec queue", function() {
+                            handleActions(senderId, message.message, text, entry, req);
+                            active = false;
+                            check();
+                        });
+
+                        check();
+                    });
                 }
             }
         }

@@ -3,11 +3,12 @@ let app = express.Router();
 const handleActions = require('./functions/index');
 const VALIDATION_TOKEN = process.env.VALIDATION_TOKEN;
 
-var queue = [];
-var active = false;
-var check = function() {
+let queue = [];
+let active = false;
+let check = function() {
+    console.log(queue);
     if (!active && queue.length > 0) {
-        var f = queue.shift();
+        let f = queue.shift();
         f();
     }
 }
@@ -25,28 +26,28 @@ app.get('/webhook', function(req, res) {
 });
 
 app.post('/webhook', function(req, res) {
-    var entries = req.body.entry;
+    let entries = req.body.entry;
 
-    for (var entry of entries) {
-        var messaging = entry.messaging;
-        for (var message of messaging) {
-            var senderId = message.sender.id;
-            if (message.message) {
-                if (message.message.text) {
-                    var text = message.message.text;
+    for (let entry of entries) {
+        let messaging = entry.messaging;
+        for (let message of messaging) {
+            let senderId = message.sender.id;
+            let messageContent = message.message;
+            if (messageContent && messageContent.text) {
+                let text = messageContent.text;
 
-                    queue.push(function() {
-                        active = true;
+                queue.push(function() {
+                    active = true;
 
-                        exec("exec queue", function() {
-                            handleActions(senderId, message.message, text, entry, req);
-                            active = false;
-                            check();
-                        });
+                    exec("exec queue", function() {
+                        handleActions(senderId, messageContent, text, entry, req);
 
+                        active = false;
                         check();
                     });
-                }
+
+                    check();
+                });
             }
         }
     }

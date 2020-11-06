@@ -6,13 +6,34 @@ const {findPersion, savePersion, updateUser} = require('../modal/people');
 const {getQuestionNameText} = require('./introduces');
 
 function handleActions(senderId, message, messContent, entry, req) {
+    const user = findPersion(senderId);
+
+	// check reply old mess
+	if (message && message.reply_to && message.reply_to.mid) {
+		if (user && user.name == message.reply_to.mid) {
+			updateUser(senderId, {
+				name: message
+			});
+
+			console.log("---------- Introduce -----------");
+			console.log("Sent from: ", senderId);
+			console.log("- time: ", getNowDateTime());
+			console.log("- name: ", message);
+
+			sendMessage(senderId, 'Hi ' + message + ', em có thể giúp gì được ạ?');
+
+			console.log("---------- End -----------");
+
+			return ;
+		}
+	}
+
 	chatterBot({
     	args: [messContent]
     }).then(function (responses) {
     	let replyText = '';
-    	const user = findPersion(senderId);
 
-    	if (!user || !user.name) {
+    	if (!user) {
 			introduce(senderId, message, user);
 
 			return ;
@@ -39,7 +60,7 @@ function handleActions(senderId, message, messContent, entry, req) {
 }
 
 function introduce(senderId, message, user) {
-	console.log("---------- Introduce -----------");
+	console.log("---------- New member -----------");
 	console.log("Sent from: ", senderId);
 	console.log("- time: ", getNowDateTime());
 	console.log("- content: ", messContent);
@@ -47,14 +68,10 @@ function introduce(senderId, message, user) {
 	const replyText = getQuestionNameText();
 	sendMessage(senderId, replyText);
 
-	if (user) {
-		updateUser();
-	} else {
-		savePersion({
-			fbId: senderId,
-			name: message.mid
-		});
-	}
+	savePersion({
+		fbId: senderId,
+		name: message.mid
+	});
 
 	console.log("---------- End -----------");
 }

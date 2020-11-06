@@ -11,3 +11,13 @@ conversations:
   - get_chatbot_name_@function
 - - tên mài là gì
   - get_chatbot_name_@function
+
+- - nay là thứ mấy
+  - get_day_name_@function
+- - thứ mấy rồi
+  - get_day_name_@function
+
+- - nay là ngày bao nhiêu
+  - get_day_@function
+- - ngày hôm nay là ngày bao nhiêu
+  - get_day_@function

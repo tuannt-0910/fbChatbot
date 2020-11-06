@@ -17,6 +17,7 @@ chatbot = ChatBot(
 )
 
 def getChatBotResponse():
+    # answer text or function name
     if sys.argv and sys.argv[1]:
         response = chatbot.get_response(sys.argv[1])
         responseText = str(response)
@@ -29,8 +30,12 @@ def getChatBotResponse():
             ])
     print(responseText)
 
+    # answer text if it is function _@function
     if ('_@function' in responseText):
-        print(str(chatbot.get_response(responseText)))
+        response = chatbot.get_response(responseText)
+        responseText = str(response)
+        if (responseText == 'default_response'): responseText = '';
+        print(responseText)
 
 # tringger
 getChatBotResponse()

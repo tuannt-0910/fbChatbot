@@ -3,11 +3,21 @@ categories:
 - trả lời chức năng
 conversations:
 - - get_now_time_@function
-  - Bây giờ là 
+  - Bây giờ là
 - - get_now_time_@function
   - Hiện tại là
 
 - - get_chatbot_name_@function
-  - Em tên là 
+  - Em tên là
 - - get_chatbot_name_@function
-  - Bot có tên là 
+  - Bot có tên là
+
+- - get_day_name_@function
+  - Hôm nay là
+- - get_day_name_@function
+  - Ngày hôm nay là
+
+- - get_day_@function
+  - Hôm nay là
+- - get_day_@function
+  - Ngày hôm nay là

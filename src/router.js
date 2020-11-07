@@ -45,9 +45,9 @@ app.post('/webhook', function(req, res) {
                         active = false;
                         check();
                     });
-
-                    check();
                 });
+
+                check();
             }
         }
     }
